@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import mongoose from 'mongoose';
 import bcryptjs from 'bcryptjs';
 import logging from '../config/logging';
-import User from '../models/user';
+import User from '../models/User';
 import signJWT from '../functions/signJWT';
 
 const NAMESPACE = 'User';
