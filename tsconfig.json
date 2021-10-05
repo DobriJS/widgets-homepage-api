@@ -12,7 +12,6 @@
       "dom"
     ],
     "sourceMap": true,
-    "outDir": "./dist",
     "baseUrl": ".",
     "incremental": true,
     "esModuleInterop": true,

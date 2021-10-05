@@ -7,7 +7,7 @@ import userRoutes from './routes/user';
 import mongoose from 'mongoose';
 
 const NAMESPACE = 'Server';
-const router = express();
+const app = express();
 
 mongoose
   .connect(config.mongo.url, config.mongo.options)
@@ -18,7 +18,7 @@ mongoose
     logging.error(NAMESPACE, error.message, error);
   });
 
-router.use((req, res, next) => {
+app.use((req, res, next) => {
   logging.info(
     NAMESPACE,
     `METHOD: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}]`,
@@ -34,12 +34,12 @@ router.use((req, res, next) => {
   next();
 });
 
-router.use(express.json());
-router.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+app.use(express.json());
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
-router.use('/users', userRoutes);
+app.use('/users', userRoutes);
 
-router.use((req, res) => {
+app.use((req, res) => {
   const error = new Error('Not found');
 
   res.status(404).json({
@@ -47,11 +47,11 @@ router.use((req, res) => {
   });
 });
 
-const httpServer = http.createServer(router);
+const httpServer = http.createServer(app);
 
 httpServer.listen(config.server.port, () =>
   logging.info(
     NAMESPACE,
-    `Server is running ${config.server.hostname}:${config.server.port}`,
+    `Server is running on Port: http://localhost:${config.server.port}`,
   ),
 );
