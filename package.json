@@ -6,7 +6,7 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "nodemon --exec 'ts-node src/server.ts'"
+    "start": "nodemon server.ts"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

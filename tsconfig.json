@@ -6,11 +6,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es5",
+    "target": "es2018",
     "lib": [
       "es2016",
       "dom"
     ],
+    "outDir": "./dist",
+    "rootDir": "./src",
     "sourceMap": true,
     "baseUrl": ".",
     "incremental": true,
