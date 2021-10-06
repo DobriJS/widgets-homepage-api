@@ -5,6 +5,9 @@ import logging from './config/logging';
 import config from './config/config';
 import userRoutes from './routes/user';
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: 'config.env' });
 
 const NAMESPACE = 'Server';
 const app = express();
@@ -45,17 +48,13 @@ app.get("/", (req, res) => {
 
 app.use((req, res) => {
   const error = new Error('Not found');
-
   res.status(404).json({
     message: error.message,
   });
 });
 
-const httpServer = http.createServer(app);
+const PORT = process.env.PORT || 4000;
 
-httpServer.listen(config.server.port, () =>
-  logging.info(
-    NAMESPACE,
-    `Server is running on Port: http://localhost:${config.server.port}`,
-  ),
+app.listen(PORT, () =>
+console.log(`Server Running on Port: http://localhost:${PORT}`)
 );
