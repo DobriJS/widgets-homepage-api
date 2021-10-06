@@ -39,6 +39,10 @@ app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 app.use('/users', userRoutes);
 
+app.get("/", (req, res) => {
+	res.send("Hello to Widgets");
+});
+
 app.use((req, res) => {
   const error = new Error('Not found');
 
