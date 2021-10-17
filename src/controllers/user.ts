@@ -9,7 +9,6 @@ const NAMESPACE = 'User';
 
 const validateToken = (req: Request, res: Response) => {
   logging.info(NAMESPACE, 'Token validated, user authorized.');
-
   return res.status(200).json({
     message: 'Token(s) validated',
   });

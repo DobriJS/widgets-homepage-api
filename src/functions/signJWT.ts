@@ -5,13 +5,9 @@ import { IUser } from '../interfaces/user';
 
 const NAMESPACE = 'Auth';
 
-const signJWT = (
-  user: IUser,
-  callback: (error: Error | null, token: string | null) => void,
-): void => {
+const signJWT = (user: IUser, callback: (error: Error | null, token: string | null) => void): void => {
   const timeSinceEpoch = new Date().getTime();
-  const expirationTime =
-    timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
+  const expirationTime = timeSinceEpoch + Number(config.server.token.expireTime) * 100000;
   const expirationTimeInSeconds = Math.floor(expirationTime / 1000);
 
   logging.info(NAMESPACE, `Attempting to sign token for ${user._id}`);

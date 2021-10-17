@@ -22,9 +22,9 @@ const MONGO = {
   url: `mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@cluster0-shard-00-00.uzivy.mongodb.net:27017,cluster0-shard-00-01.uzivy.mongodb.net:27017,cluster0-shard-00-02.uzivy.mongodb.net:27017/WidgetsApp?ssl=true&replicaSet=atlas-nvmpe9-shard-0&authSource=admin&retryWrites=true&w=majority`,
 };
 
-const SERVER_TOKEN_EXPIRETIME = process.env.SERVER_TOKEN_EXPIRETIME;
-const SERVER_TOKEN_ISSUER = process.env.SERVER_TOKEN_ISSUER;
-const SERVER_TOKEN_SECRET = process.env.SERVER_TOKEN_SECRET;
+const SERVER_TOKEN_EXPIRETIME = process.env.SERVER_TOKEN_EXPIRETIME || 3600;
+const SERVER_TOKEN_ISSUER = process.env.SERVER_TOKEN_ISSUER || 'alibaba';
+const SERVER_TOKEN_SECRET = process.env.SERVER_TOKEN_SECRET || 'supercryptedalibaba';
 
 const SERVER = {
   token: {
