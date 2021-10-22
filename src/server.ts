@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use(cors({ origin: 'https://homepage-widgets--pr42-axios-config-api-rx4ai3yg.web.app', credentials: true }));
+app.use(cors({ origin: 'https://homepage-widgets.web.app', credentials: true }));
 
 app.use('/user', userRoutes);
 
