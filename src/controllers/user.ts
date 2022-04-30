@@ -4,12 +4,6 @@ import bcryptjs from 'bcryptjs';
 import User from '../models/User';
 import signJWT from '../functions/signJWT';
 
-const validateToken = (req: Request, res: Response) => {
-  return res.status(200).json({
-    message: 'Token(s) validated'
-  });
-};
-
 const signup = (req: Request, res: Response) => {
   const { username, password } = req.body;
 
@@ -45,7 +39,7 @@ const signup = (req: Request, res: Response) => {
 
 const login = (req: Request, res: Response) => {
   const { username, password } = req.body;
-
+  console.log(req.body);
   User.find({ username })
     .exec()
     .then((users) => {
@@ -86,4 +80,4 @@ const login = (req: Request, res: Response) => {
     });
 };
 
-export default { validateToken, signup, login };
+export default { signup, login };
